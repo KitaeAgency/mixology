@@ -17,7 +17,7 @@ Install
 
 ---
 
-Gridex Inspiration
+#### Gridex Inspiration :
 ------------
 >  - [KNACSS](https://github.com/raphaelgoetter/KNACSS)
 >  - [Flexbox Grid](https://github.com/kristoferjoseph/flexboxgrid)
