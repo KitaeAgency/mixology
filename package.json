@@ -1,0 +1,27 @@
+{
+  "name": "mixology",
+  "version": "0.0.0",
+  "description": "Repository containing some Sass mixins",
+  "main": "mixology.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KitaeAgency/mixology.git"
+  },
+  "keywords": [
+    "Sass",
+    "mixins",
+    "scss",
+    "flex",
+    "flexbox",
+    "grid"
+  ],
+  "author": "@benjh, @adriench",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KitaeAgency/mixology/issues"
+  },
+  "homepage": "https://github.com/KitaeAgency/mixology"
+}

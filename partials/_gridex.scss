@@ -1,0 +1,299 @@
+// Grid system
+// --------------------------------------------------
+
+// Need Screen Size Variables:
+// ----------------------------
+// $screen-xs
+// $screen-sm
+// $screen-md
+// $screen-lg
+
+
+// Framework grid generation
+//
+// any value of `$grid-columns`.
+//
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
+    @for $i from (1 + 1) through $grid-columns {
+        $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+    }
+    #{$list} {
+        position: relative;
+        padding-left:  ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
+    }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin flex-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
+    @for $i from (1 + 1) through $grid-columns {
+        $list: "#{$list}, .col-#{$class}-#{$i}";
+    }
+    #{$list} {
+        @include x-flexbox;
+        @include x-flex(0 0 auto);
+    }
+    .col-#{$class} {
+        @include x-flex-grow(1);
+        @include x-flex-basis(0);
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@mixin calc-grid-column($index, $class, $type) {
+    @if ($type == width) and ($index > 0) {
+        .col-#{$class}-#{$index} {
+            @include x-flex-basis(percentage(($index / $grid-columns)));
+            width: percentage(($index / $grid-columns));
+            max-width: percentage(($index / $grid-columns));
+        }
+    }
+    @if ($type == push) and ($index > 0) {
+        .col-#{$class}-push-#{$index} {
+            left: percentage(($index / $grid-columns));
+        }
+    }
+    @if ($type == push) and ($index == 0) {
+        .col-#{$class}-push-0 {
+            left: auto;
+        }
+    }
+    @if ($type == pull) and ($index > 0) {
+        .col-#{$class}-pull-#{$index} {
+            right: percentage(($index / $grid-columns));
+        }
+    }
+    @if ($type == pull) and ($index == 0) {
+        .col-#{$class}-pull-0 {
+            right: auto;
+        }
+    }
+    @if ($type == offset) {
+        .col-#{$class}-offset-#{$index} {
+            margin-left: percentage(($index / $grid-columns));
+        }
+    }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin loop-grid-columns($columns, $class, $type) {
+    @for $i from 0 through $columns {
+        @include calc-grid-column($i, $class, $type);
+    }
+}
+
+
+// Create grid for specific class
+@mixin make-grid($class) {
+    @include flex-grid-columns($class);
+    @include loop-grid-columns($grid-columns, $class, width);
+    @include loop-grid-columns($grid-columns, $class, pull);
+    @include loop-grid-columns($grid-columns, $class, push);
+    @include loop-grid-columns($grid-columns, $class, offset);
+}
+
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.row {
+    @include x-flexbox;
+    @include x-flex-wrap(wrap);
+    @include x-flex-direction(row);
+    @include x-flex(0 1 auto);
+    margin-left: -($grid-gutter-width/2);
+    margin-right: -($grid-gutter-width/2);
+}
+
+.box-container {
+    position: initial;
+    width: 100%;
+}
+/**
+ * =====================
+ *  Parent's properties
+ * =====================
+ */
+
+    /**
+     * Flex Direction
+     */
+
+    .row-flex {
+      @include x-flex-direction(row);
+    }
+    .row-inverse-flex {
+        @include x-flex-direction(row-reverse);
+    }
+    .column-flex{
+        @include x-flex-direction(column);
+    }
+    .column-inverse-flex{
+        @include x-flex-direction(column-reverse);
+    }
+
+    /**
+     * Flex Wrap
+     */
+
+    .flex-no-wrap{
+        @include x-flex-wrap(no-wrap);
+    }
+    .flex-wrap{
+        @include x-flex-wrap(wrap);
+    }
+    .flex-wrap-reverse{
+        @include x-flex-wrap(wrap-reverse);
+    }
+
+    /**
+     * Justify content
+     */
+
+    .justify-content-start {
+        @include x-justify-content(flex-start);
+    }
+    .justify-content-end {
+        @include x-justify-content(flex-end);
+    }
+    .justify-content-around {
+        @include x-justify-content(space-around);
+    }
+    .justify-content-between {
+        @include x-justify-content(space-between);
+    }
+    .justify-content-center {
+        @include x-justify-content(center);
+    }
+
+    /**
+     * Align items
+     */
+
+    .align-items-start {
+        @include x-align-items(flex-start);
+    }
+    .align-items-end {
+        @include x-align-items(flex-end);
+    }
+    .align-items-center {
+        @include x-align-items(center);
+    }
+    .align-items-stretch {
+        @include x-align-items(stretch);
+    }
+    .align-items-baseline {
+        @include x-align-items(baseline);
+    }
+
+    /**
+     * Align content
+     */
+
+    .align-content-start {
+        @include x-align-content(flex-start);
+    }
+    .align-content-end {
+        @include x-align-content(flex-end);
+    }
+    .align-content-center {
+        @include x-align-content(center);
+    }
+    .align-content-stretch {
+        @include x-align-content(stretch);
+    }
+    .align-content-around {
+        @include x-align-content(space-around);
+    }
+    .align-content-between {
+        @include x-align-content(space-between);
+    }
+/**
+ * =======================
+ *  Children's properties
+ * =======================
+ */
+
+    /**
+     * Flex Grow
+     */
+
+    .flex-grow{
+        @include x-flex-grow(1);
+    }
+    .flex-no-grow{
+        @include x-flex-grow(0);
+    }
+
+    /**
+     * Flex-shrink
+     */
+
+    .flex-shrink{
+        @include x-flex-shrink(1);
+    }
+    .flex-no-shrink{
+        @include x-flex-shrink(0);
+    }
+
+    /**
+     * Align-self
+     */
+
+    .align-self-start{
+        @include x-align-self(flex-start);
+    }
+    .align-self-end{
+        @include x-align-self(flex-end);
+    }
+    .align-self-center{
+        @include x-align-self(center);
+    }
+    .align-self-baseline{
+        @include x-align-self(baseline);
+    }
+    .align-self-stretch{
+        @include x-align-self(stretch);
+    }
+
+
+
+/**
+ * Columns
+ */
+// Common styles for small and large grid columns
+@include make-grid-columns;
+
+/**
+ * Extra small grid
+ */
+// Columns, offsets, pushes, and pulls for extra small devices like smartphones.
+@include make-grid(xs);
+
+/**
+ * Small grid
+ */
+// Columns, offsets, pushes, and pulls for the small device range, from phones to tablets.
+@media (min-width: $screen-sm-min) {
+    @include make-grid(sm);
+}
+
+/**
+ * Medium grid
+ */
+// Columns, offsets, pushes, and pulls for the desktop device range.
+@media (min-width: $screen-md-min) {
+    @include make-grid(md);
+}
+
+/**
+ * Large grid
+ */
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+@media (min-width: $screen-lg-min) {
+    @include make-grid(lg);
+}
