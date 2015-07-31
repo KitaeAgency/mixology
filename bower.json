@@ -6,7 +6,7 @@
     "Benjamin <benjhug@gmail.com>"
   ],
   "description": "Repository containing some Sass mixins",
-  "main": "mixins.scss",
+  "main": "mixology.scss",
   "keywords": [
     "Sass",
     "mixins",
