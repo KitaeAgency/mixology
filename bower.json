@@ -1,0 +1,26 @@
+{
+  "name": "mixology",
+  "version": "0.0.0",
+  "homepage": "https://github.com/KitaeAgency/mixology",
+  "authors": [
+    "Benjamin <benjhug@gmail.com>"
+  ],
+  "description": "Repository containing some Sass mixins",
+  "main": "mixins.scss",
+  "keywords": [
+    "Sass",
+    "mixins",
+    "scss",
+    "flex",
+    "flexbox",
+    "grid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
