@@ -18,10 +18,11 @@
 
 @mixin x-flexbox {
     display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
+    display: -moz-box;
     display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    position: relative;
 }
 
 %flexbox { @include x-flexbox; }

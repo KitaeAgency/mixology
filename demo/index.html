@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta title="Mixology grid demo"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+    <link href='stylesheets/mixology.css' rel='stylesheet' type='text/css'>
+
+    <!-- For Demo only -->
+    <style type="text/css">
+        html, body, * {
+            box-sizing: border-box;
+        }
+
+        .border{
+            border: 1px solid black;
+        }
+        .container{
+            max-width: 1040px;
+            margin: auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="main-content">
+
+            <!-- ======================================================================= -->
+            <!--                                                             Simple Grid -->
+            <!-- ======================================================================= -->
+            <h1>Simple Grid test</h1>
+            <div class="container">
+                <div class="mixology-row">
+                    <div class="border col-xs-12">12</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-6">6</div>
+                    <div class="border col-xs-6">6</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-4">4</div>
+                    <div class="border col-xs-4">4</div>
+                    <div class="border col-xs-4">4</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-3">3</div>
+                    <div class="border col-xs-3">3</div>
+                    <div class="border col-xs-3">3</div>
+                    <div class="border col-xs-3">3</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-2">2</div>
+                    <div class="border col-xs-2">2</div>
+                    <div class="border col-xs-2">2</div>
+                    <div class="border col-xs-2">2</div>
+                    <div class="border col-xs-2">2</div>
+                    <div class="border col-xs-2">2</div>
+                </div>
+            </div>
+            <!-- ======================================================================= -->
+            <!--                                                             Offset Grid -->
+            <!-- ======================================================================= -->
+            <h1>Offset Grid test</h1>
+            <div class="container">
+                <div class="mixology-row">
+                    <div class="border col-xs-6 col-xs-offset-6">6</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-3 col-xs-offset-3">3</div>
+                    <div class="border col-xs-3 col-xs-offset-3">3</div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-2 col-xs-offset-2">2</div>
+                    <div class="border col-xs-2 col-xs-offset-2">2</div>
+                    <div class="border col-xs-2 col-xs-offset-2">2</div>
+                </div>
+            </div>
+            <!-- ======================================================================= -->
+            <!--                                                             Nested Grid -->
+            <!-- ======================================================================= -->
+            <h1>Nested Grid test</h1>
+            <div class="container">
+                <div class="mixology-row">
+                    <div class="col-xs-6">
+
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                            <div class="mixology-row">
+                                <div class="border col-xs-6">6</div>
+                                <div class="border col-xs-6">6</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-6">
+
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                            <div class="mixology-row">
+                                <div class="border col-xs-6">6</div>
+                                <div class="border col-xs-6">6</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mixology-row">
+                    <div class="border col-xs-2">2</div>
+                    <div class="border flex-grow ">
+
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                            <div class="mixology-row">
+                                <div class="border col-xs-6">col-6</div>
+                                <div class="border col-xs-6">col-6</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="border col-xs-2">2</div>
+                </div>
+            </div>
+            <!-- ======================================================================= -->
+            <!--                                                             Header Grid -->
+            <!-- ======================================================================= -->
+            <h1>Header Grid test</h1>
+            <div class="container">
+                <div class="mixology-row">
+                    <div class="border flex-no-grow flex-no-shrink" style="width: 50px;">50px</div>
+                    <div class="border flex-grow">
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                           auto flex
+                        </div>
+                    </div>
+                    <div class="border flex-no-grow flex-no-shrink" style="width: 70px;">70px</div>
+                </div>
+            </div>
+            <!-- ======================================================================= -->
+            <!--                                            Grid Accueil Espace Donateur -->
+            <!-- ======================================================================= -->
+            <h1>Grid Accueil Espace Donateur</h1>
+            <div class="container">
+                <div class="mixology-row">
+                    <div class="border col-xs-9">
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                            <div class="mixology-row">
+                                <div class="border col-xs-12" style="height: 200px">col-12</div>
+                            </div>
+                            <div class="mixology-row">
+                                <div class="border col-xs-6" style="height: 100px">col-6</div>
+                                <div class="border col-xs-6">col-6</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border col-xs-3">
+                        <div class="box-container"> <!-- Break the flexbox nesting flow -->
+                            <div class="mixology-row">
+                                <div class="border col-xs-12" style="height: 75px">col-12</div>
+                            </div>
+                            <div class="mixology-row">
+                                <div class="border col-xs-12" style="height: 225px">col-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

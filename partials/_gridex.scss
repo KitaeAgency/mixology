@@ -100,7 +100,7 @@
 //
 // Rows contain and clear the floats of your columns.
 
-.row {
+.mixology-row {
     @include x-flexbox;
     @include x-flex-wrap(wrap);
     @include x-flex-direction(row);
