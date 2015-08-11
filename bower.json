@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/KitaeAgency/mixology",
   "authors": [
-    "Benjamin <benjhug@gmail.com>"
+    "Benjamin <benjhug@gmail.com>",
     "Adrien <adrien.goncalves@gmail.com>"
   ],
   "description": "Repository containing some Sass mixins",
