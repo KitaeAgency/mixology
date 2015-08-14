@@ -1,33 +1,27 @@
 // Grid system
 // --------------------------------------------------
-
-// Need Screen Size Variables:
-// ----------------------------
-// $screen-xs
-// $screen-sm
-// $screen-md
-// $screen-lg
-
+// Grid vars
+// --------------------------------------------------
 
 // Framework grid generation
 //
-// any value of `$grid-columns`.
+// any value of `$mixo-grid-columns`.
 //
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-    @for $i from (1 + 1) through $grid-columns {
+    @for $i from (1 + 1) through $mixo-grid-columns {
         $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
     }
     #{$list} {
         position: relative;
-        padding-left:  ($grid-gutter-width / 2);
-        padding-right: ($grid-gutter-width / 2);
+        padding-left:  $mixo-grid-gutter-width / 2;
+        padding-right: $mixo-grid-gutter-width / 2;
     }
 }
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin flex-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-    @for $i from (1 + 1) through $grid-columns {
+    @for $i from (1 + 1) through $mixo-grid-columns {
         $list: "#{$list}, .col-#{$class}-#{$i}";
     }
     #{$list} {
@@ -45,14 +39,14 @@
 @mixin calc-grid-column($index, $class, $type) {
     @if ($type == width) and ($index > 0) {
         .col-#{$class}-#{$index} {
-            @include x-flex-basis(percentage(($index / $grid-columns)));
-            width: percentage(($index / $grid-columns));
-            max-width: percentage(($index / $grid-columns));
+            @include x-flex-basis(percentage(($index / $mixo-grid-columns)));
+            width: percentage(($index / $mixo-grid-columns));
+            max-width: percentage(($index / $mixo-grid-columns));
         }
     }
     @if ($type == push) and ($index > 0) {
         .col-#{$class}-push-#{$index} {
-            left: percentage(($index / $grid-columns));
+            left: percentage(($index / $mixo-grid-columns));
         }
     }
     @if ($type == push) and ($index == 0) {
@@ -62,7 +56,7 @@
     }
     @if ($type == pull) and ($index > 0) {
         .col-#{$class}-pull-#{$index} {
-            right: percentage(($index / $grid-columns));
+            right: percentage(($index / $mixo-grid-columns));
         }
     }
     @if ($type == pull) and ($index == 0) {
@@ -72,7 +66,7 @@
     }
     @if ($type == offset) {
         .col-#{$class}-offset-#{$index} {
-            margin-left: percentage(($index / $grid-columns));
+            margin-left: percentage(($index / $mixo-grid-columns));
         }
     }
 }
@@ -88,31 +82,84 @@
 // Create grid for specific class
 @mixin make-grid($class) {
     @include flex-grid-columns($class);
-    @include loop-grid-columns($grid-columns, $class, width);
-    @include loop-grid-columns($grid-columns, $class, pull);
-    @include loop-grid-columns($grid-columns, $class, push);
-    @include loop-grid-columns($grid-columns, $class, offset);
+    @include loop-grid-columns($mixo-grid-columns, $class, width);
+    @include loop-grid-columns($mixo-grid-columns, $class, pull);
+    @include loop-grid-columns($mixo-grid-columns, $class, push);
+    @include loop-grid-columns($mixo-grid-columns, $class, offset);
 }
 
+//==============================================================================
+//==============================================================================
+//==============================================================================
+//==============================================================================
 
 
+
+//==============================================================================
+/// Reset row styles
+@mixin mixo-grid-row-reset {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    margin-left: -$mixo-grid-gutter / 2;
+    margin-right: -$mixo-grid-gutter / 2;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// =============================================================================
 // Row
+// =============================================================================
 //
 // Rows contain and clear the floats of your columns.
-
 .mixology-row {
+    clear: both;
+    min-width: $mixo-grid-min-width; /* $max-previous-layout */
+    //max-width: mixo-max-width-for-layout(L); /* $max-next-layout */
+    padding-left: $mixo-grid-gutter-width/2;
+    padding-right: $mixo-grid-gutter-width/2;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
     @include x-flexbox;
     @include x-flex-wrap(wrap);
-    @include x-flex-direction(row);
-    @include x-flex(0 1 auto);
-    margin-left: -($grid-gutter-width/2);
-    margin-right: -($grid-gutter-width/2);
+    zoom:1;
+
+
+    //@include x-flex-direction(row);
+    //@include x-flex(0 1 auto);
+
+    &:after,
+    &:before {
+        content: ' ';
+        display: none;
+        display: table/9;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    & .mixology-row {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        margin-left: -$mixo-grid-gutter-width/2;
+        margin-right: -$mixo-grid-gutter-width/2;
+        padding-left: 0;
+        padding-right: 0
+    }
 }
+
 
 .box-container {
     position: initial;
     width: 100%;
 }
+/*
+HELPERS
+*/
+
 /**
  * =====================
  *  Parent's properties
@@ -221,7 +268,6 @@
     /**
      * Flex Grow
      */
-
     .flex-grow{
         @include x-flex-grow(1);
     }
@@ -232,7 +278,6 @@
     /**
      * Flex-shrink
      */
-
     .flex-shrink{
         @include x-flex-shrink(1);
     }
@@ -243,7 +288,6 @@
     /**
      * Align-self
      */
-
     .align-self-start{
         @include x-align-self(flex-start);
     }
@@ -259,7 +303,6 @@
     .align-self-stretch{
         @include x-align-self(stretch);
     }
-
 
 
 /**
@@ -278,7 +321,7 @@
  * Small grid
  */
 // Columns, offsets, pushes, and pulls for the small device range, from phones to tablets.
-@media (min-width: $screen-sm-min) {
+@media (min-width: $mixo-sm-min) {
     @include make-grid(sm);
 }
 
@@ -286,7 +329,7 @@
  * Medium grid
  */
 // Columns, offsets, pushes, and pulls for the desktop device range.
-@media (min-width: $screen-md-min) {
+@media (min-width: $mixo-md-min) {
     @include make-grid(md);
 }
 
@@ -294,6 +337,6 @@
  * Large grid
  */
 // Columns, offsets, pushes, and pulls for the large desktop device range.
-@media (min-width: $screen-lg-min) {
+@media (min-width: $mixo-lg-min) {
     @include make-grid(lg);
 }

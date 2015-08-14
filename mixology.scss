@@ -1,9 +1,3 @@
-@import "partials/vars";
-@import "partials/flexbox";
-
-//----------------------------------------------------------------------
-// ---- REQUIRED ----
-// @import "partials/vars";
-// @import "partials/flexbox";
-//----------------------------------------------------------------------
-@import "partials/gridex";
+@import "src/scss/vars";
+@import "src/scss/flexbox";
+@import "src/scss/gridex";

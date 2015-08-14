@@ -1,0 +1,38 @@
+// =============================================================================
+// Grid system
+// =============================================================================
+//## Define your custom responsive grid.
+
+//  Number of columns in the grid.
+$mixo-grid-columns:              12 !default;
+
+//  Gutter Width
+$mixo-grid-gutter-width:         10px !default;
+
+// Minimum width in pixels
+$mixo-grid-min-width: 240px !default;
+
+// Extra small screen / phone
+$mixo-xs-min:              490px !default; // MOBILE MAX
+$mixo-sm-min:              730px !default; // TABEL MAX
+$mixo-md-min:              970px !default; // DESKTOP MIN
+$mixo-lg-min:              1210px !default;
+
+// Get max
+$mixo-xs-max:              ($mixo-sm-min - 1) !default;
+$mixo-sm-max:              ($mixo-md-min - 1) !default;
+$mixo-md-max:              ($mixo-lg-min - 1) !default;
+
+// // All Layouts
+// $mixo-grid-layouts: (
+//     S:  490px,  // column-width: 30px
+//     M:  730px,  // column-width: 50px
+//     L:  970px,  // column-width: 70px
+//     XL: 1210px, // column-width: 90px
+// ) !default;
+
+// // All Layouts Names
+// $mixo-grid-layout-names: map-keys($mixo-grid-layouts) !global;
+
+// // All Layouts Max Width
+// $mixo-grid-max-width: map-get($mixo-grid-layouts, nth(mixo-grid-layout-names, -1)) !global;

@@ -1,8 +1,16 @@
 /**
  * Flexbox Mixins
  */
-/* line 103, ../../partials/_gridex.scss */
+/* line 115, ../src/scss/_gridex.scss */
 .mixology-row {
+  clear: both;
+  min-width: 240px;
+  /* $max-previous-layout */
+  padding-left: 5px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -13,28 +21,38 @@
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  margin-left: -7.5px;
-  margin-right: -7.5px;
+  zoom: 1;
+}
+/* line 132, ../src/scss/_gridex.scss */
+.mixology-row:after, .mixology-row:before {
+  content: ' ';
+  display: none;
+  display: table/9;
+}
+/* line 139, ../src/scss/_gridex.scss */
+.mixology-row:after {
+  clear: both;
+}
+/* line 143, ../src/scss/_gridex.scss */
+.mixology-row .mixology-row {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  margin-left: -5px;
+  margin-right: -5px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* line 112, ../../partials/_gridex.scss */
+/* line 155, ../src/scss/_gridex.scss */
 .box-container {
   position: initial;
   width: 100%;
 }
 
+/*
+HELPERS
+*/
 /**
  * =====================
  *  Parent's properties
@@ -43,7 +61,7 @@
 /**
  * Flex Direction
  */
-/* line 126, ../../partials/_gridex.scss */
+/* line 173, ../src/scss/_gridex.scss */
 .row-flex {
   -webkit-box-direction: normal;
   -webkit-box-orient: horizontal;
@@ -53,7 +71,7 @@
   flex-direction: row;
 }
 
-/* line 129, ../../partials/_gridex.scss */
+/* line 176, ../src/scss/_gridex.scss */
 .row-inverse-flex {
   -webkit-box-direction: reverse;
   -webkit-box-orient: horizontal;
@@ -63,7 +81,7 @@
   flex-direction: row-reverse;
 }
 
-/* line 132, ../../partials/_gridex.scss */
+/* line 179, ../src/scss/_gridex.scss */
 .column-flex {
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
@@ -73,7 +91,7 @@
   flex-direction: column;
 }
 
-/* line 135, ../../partials/_gridex.scss */
+/* line 182, ../src/scss/_gridex.scss */
 .column-inverse-flex {
   -webkit-box-direction: reverse;
   -webkit-box-orient: vertical;
@@ -86,7 +104,7 @@
 /**
  * Flex Wrap
  */
-/* line 143, ../../partials/_gridex.scss */
+/* line 190, ../src/scss/_gridex.scss */
 .flex-no-wrap {
   -webkit-flex-wrap: no-wrap;
   -moz-flex-wrap: no-wrap;
@@ -94,7 +112,7 @@
   flex-wrap: no-wrap;
 }
 
-/* line 146, ../../partials/_gridex.scss */
+/* line 193, ../src/scss/_gridex.scss */
 .flex-wrap {
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
@@ -102,7 +120,7 @@
   flex-wrap: wrap;
 }
 
-/* line 149, ../../partials/_gridex.scss */
+/* line 196, ../src/scss/_gridex.scss */
 .flex-wrap-reverse {
   -webkit-flex-wrap: wrap-reverse;
   -moz-flex-wrap: wrap-reverse;
@@ -113,7 +131,7 @@
 /**
  * Justify content
  */
-/* line 157, ../../partials/_gridex.scss */
+/* line 204, ../src/scss/_gridex.scss */
 .justify-content-start {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
@@ -122,7 +140,7 @@
   justify-content: flex-start;
 }
 
-/* line 160, ../../partials/_gridex.scss */
+/* line 207, ../src/scss/_gridex.scss */
 .justify-content-end {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -131,7 +149,7 @@
   justify-content: flex-end;
 }
 
-/* line 163, ../../partials/_gridex.scss */
+/* line 210, ../src/scss/_gridex.scss */
 .justify-content-around {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
@@ -139,7 +157,7 @@
   justify-content: space-around;
 }
 
-/* line 166, ../../partials/_gridex.scss */
+/* line 213, ../src/scss/_gridex.scss */
 .justify-content-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -148,7 +166,7 @@
   justify-content: space-between;
 }
 
-/* line 169, ../../partials/_gridex.scss */
+/* line 216, ../src/scss/_gridex.scss */
 .justify-content-center {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -160,7 +178,7 @@
 /**
  * Align items
  */
-/* line 177, ../../partials/_gridex.scss */
+/* line 224, ../src/scss/_gridex.scss */
 .align-items-start {
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -169,7 +187,7 @@
   align-items: flex-start;
 }
 
-/* line 180, ../../partials/_gridex.scss */
+/* line 227, ../src/scss/_gridex.scss */
 .align-items-end {
   -webkit-box-align: end;
   -ms-flex-align: end;
@@ -178,7 +196,7 @@
   align-items: flex-end;
 }
 
-/* line 183, ../../partials/_gridex.scss */
+/* line 230, ../src/scss/_gridex.scss */
 .align-items-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -187,7 +205,7 @@
   align-items: center;
 }
 
-/* line 186, ../../partials/_gridex.scss */
+/* line 233, ../src/scss/_gridex.scss */
 .align-items-stretch {
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -196,7 +214,7 @@
   align-items: stretch;
 }
 
-/* line 189, ../../partials/_gridex.scss */
+/* line 236, ../src/scss/_gridex.scss */
 .align-items-baseline {
   -webkit-box-align: baseline;
   -ms-flex-align: baseline;
@@ -208,7 +226,7 @@
 /**
  * Align content
  */
-/* line 197, ../../partials/_gridex.scss */
+/* line 244, ../src/scss/_gridex.scss */
 .align-content-start {
   -webkit-align-content: flex-start;
   -moz-align-content: flex-start;
@@ -216,7 +234,7 @@
   align-content: flex-start;
 }
 
-/* line 200, ../../partials/_gridex.scss */
+/* line 247, ../src/scss/_gridex.scss */
 .align-content-end {
   -webkit-align-content: flex-end;
   -moz-align-content: flex-end;
@@ -224,7 +242,7 @@
   align-content: flex-end;
 }
 
-/* line 203, ../../partials/_gridex.scss */
+/* line 250, ../src/scss/_gridex.scss */
 .align-content-center {
   -webkit-align-content: center;
   -moz-align-content: center;
@@ -232,7 +250,7 @@
   align-content: center;
 }
 
-/* line 206, ../../partials/_gridex.scss */
+/* line 253, ../src/scss/_gridex.scss */
 .align-content-stretch {
   -webkit-align-content: stretch;
   -moz-align-content: stretch;
@@ -240,7 +258,7 @@
   align-content: stretch;
 }
 
-/* line 209, ../../partials/_gridex.scss */
+/* line 256, ../src/scss/_gridex.scss */
 .align-content-around {
   -webkit-align-content: space-around;
   -moz-align-content: space-around;
@@ -248,7 +266,7 @@
   align-content: space-around;
 }
 
-/* line 212, ../../partials/_gridex.scss */
+/* line 259, ../src/scss/_gridex.scss */
 .align-content-between {
   -webkit-align-content: space-between;
   -moz-align-content: space-between;
@@ -264,7 +282,7 @@
 /**
  * Flex Grow
  */
-/* line 225, ../../partials/_gridex.scss */
+/* line 271, ../src/scss/_gridex.scss */
 .flex-grow {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -273,7 +291,7 @@
   flex-grow: 1;
 }
 
-/* line 228, ../../partials/_gridex.scss */
+/* line 274, ../src/scss/_gridex.scss */
 .flex-no-grow {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -285,7 +303,7 @@
 /**
  * Flex-shrink
  */
-/* line 236, ../../partials/_gridex.scss */
+/* line 281, ../src/scss/_gridex.scss */
 .flex-shrink {
   -webkit-flex-shrink: 1;
   -moz-flex-shrink: 1;
@@ -293,7 +311,7 @@
   flex-shrink: 1;
 }
 
-/* line 239, ../../partials/_gridex.scss */
+/* line 284, ../src/scss/_gridex.scss */
 .flex-no-shrink {
   -webkit-flex-shrink: 0;
   -moz-flex-shrink: 0;
@@ -304,7 +322,7 @@
 /**
  * Align-self
  */
-/* line 247, ../../partials/_gridex.scss */
+/* line 291, ../src/scss/_gridex.scss */
 .align-self-start {
   -webkit-align-self: flex-start;
   -moz-align-self: flex-start;
@@ -312,7 +330,7 @@
   align-self: flex-start;
 }
 
-/* line 250, ../../partials/_gridex.scss */
+/* line 294, ../src/scss/_gridex.scss */
 .align-self-end {
   -webkit-align-self: flex-end;
   -moz-align-self: flex-end;
@@ -320,7 +338,7 @@
   align-self: flex-end;
 }
 
-/* line 253, ../../partials/_gridex.scss */
+/* line 297, ../src/scss/_gridex.scss */
 .align-self-center {
   -webkit-align-self: center;
   -moz-align-self: center;
@@ -328,7 +346,7 @@
   align-self: center;
 }
 
-/* line 256, ../../partials/_gridex.scss */
+/* line 300, ../src/scss/_gridex.scss */
 .align-self-baseline {
   -webkit-align-self: baseline;
   -moz-align-self: baseline;
@@ -336,7 +354,7 @@
   align-self: baseline;
 }
 
-/* line 259, ../../partials/_gridex.scss */
+/* line 303, ../src/scss/_gridex.scss */
 .align-self-stretch {
   -webkit-align-self: stretch;
   -moz-align-self: stretch;
@@ -347,17 +365,17 @@
 /**
  * Columns
  */
-/* line 21, ../../partials/_gridex.scss */
+/* line 15, ../src/scss/_gridex.scss */
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
-  padding-left: 7.5px;
-  padding-right: 7.5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /**
  * Extra small grid
  */
-/* line 33, ../../partials/_gridex.scss */
+/* line 27, ../src/scss/_gridex.scss */
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   display: -webkit-box;
   display: -moz-box;
@@ -373,7 +391,7 @@
   flex: 0 0 auto;
 }
 
-/* line 37, ../../partials/_gridex.scss */
+/* line 31, ../src/scss/_gridex.scss */
 .col-xs {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -388,7 +406,7 @@
   max-width: 100%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-1 {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
@@ -398,7 +416,7 @@
   max-width: 8.33333%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-2 {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
@@ -408,7 +426,7 @@
   max-width: 16.66667%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-3 {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
@@ -418,7 +436,7 @@
   max-width: 25%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-4 {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
@@ -428,7 +446,7 @@
   max-width: 33.33333%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-5 {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
@@ -438,7 +456,7 @@
   max-width: 41.66667%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-6 {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
@@ -448,7 +466,7 @@
   max-width: 50%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-7 {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
@@ -458,7 +476,7 @@
   max-width: 58.33333%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-8 {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
@@ -468,7 +486,7 @@
   max-width: 66.66667%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-9 {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
@@ -478,7 +496,7 @@
   max-width: 75%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-10 {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
@@ -488,7 +506,7 @@
   max-width: 83.33333%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-11 {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
@@ -498,7 +516,7 @@
   max-width: 91.66667%;
 }
 
-/* line 47, ../../partials/_gridex.scss */
+/* line 41, ../src/scss/_gridex.scss */
 .col-xs-12 {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
@@ -508,197 +526,197 @@
   max-width: 100%;
 }
 
-/* line 69, ../../partials/_gridex.scss */
+/* line 63, ../src/scss/_gridex.scss */
 .col-xs-pull-0 {
   right: auto;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-1 {
   right: 8.33333%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-2 {
   right: 16.66667%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-3 {
   right: 25%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-4 {
   right: 33.33333%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-5 {
   right: 41.66667%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-6 {
   right: 50%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-7 {
   right: 58.33333%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-8 {
   right: 66.66667%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-9 {
   right: 75%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-10 {
   right: 83.33333%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-11 {
   right: 91.66667%;
 }
 
-/* line 64, ../../partials/_gridex.scss */
+/* line 58, ../src/scss/_gridex.scss */
 .col-xs-pull-12 {
   right: 100%;
 }
 
-/* line 59, ../../partials/_gridex.scss */
+/* line 53, ../src/scss/_gridex.scss */
 .col-xs-push-0 {
   left: auto;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-1 {
   left: 8.33333%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-2 {
   left: 16.66667%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-3 {
   left: 25%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-4 {
   left: 33.33333%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-5 {
   left: 41.66667%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-6 {
   left: 50%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-7 {
   left: 58.33333%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-8 {
   left: 66.66667%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-9 {
   left: 75%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-10 {
   left: 83.33333%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-11 {
   left: 91.66667%;
 }
 
-/* line 54, ../../partials/_gridex.scss */
+/* line 48, ../src/scss/_gridex.scss */
 .col-xs-push-12 {
   left: 100%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-0 {
   margin-left: 0%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-1 {
   margin-left: 8.33333%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-2 {
   margin-left: 16.66667%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-3 {
   margin-left: 25%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-4 {
   margin-left: 33.33333%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-5 {
   margin-left: 41.66667%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-6 {
   margin-left: 50%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-7 {
   margin-left: 58.33333%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-8 {
   margin-left: 66.66667%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-9 {
   margin-left: 75%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-10 {
   margin-left: 83.33333%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-11 {
   margin-left: 91.66667%;
 }
 
-/* line 74, ../../partials/_gridex.scss */
+/* line 68, ../src/scss/_gridex.scss */
 .col-xs-offset-12 {
   margin-left: 100%;
 }
@@ -706,8 +724,8 @@
 /**
  * Small grid
  */
-@media (min-width: 768px) {
-  /* line 33, ../../partials/_gridex.scss */
+@media (min-width: 730px) {
+  /* line 27, ../src/scss/_gridex.scss */
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     display: -webkit-box;
     display: -moz-box;
@@ -723,7 +741,7 @@
     flex: 0 0 auto;
   }
 
-  /* line 37, ../../partials/_gridex.scss */
+  /* line 31, ../src/scss/_gridex.scss */
   .col-sm {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -738,7 +756,7 @@
     max-width: 100%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-1 {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
@@ -748,7 +766,7 @@
     max-width: 8.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-2 {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
@@ -758,7 +776,7 @@
     max-width: 16.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-3 {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
@@ -768,7 +786,7 @@
     max-width: 25%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-4 {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
@@ -778,7 +796,7 @@
     max-width: 33.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-5 {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
@@ -788,7 +806,7 @@
     max-width: 41.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-6 {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
@@ -798,7 +816,7 @@
     max-width: 50%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-7 {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
@@ -808,7 +826,7 @@
     max-width: 58.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-8 {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
@@ -818,7 +836,7 @@
     max-width: 66.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-9 {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
@@ -828,7 +846,7 @@
     max-width: 75%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-10 {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
@@ -838,7 +856,7 @@
     max-width: 83.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-11 {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
@@ -848,7 +866,7 @@
     max-width: 91.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-sm-12 {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
@@ -858,197 +876,197 @@
     max-width: 100%;
   }
 
-  /* line 69, ../../partials/_gridex.scss */
+  /* line 63, ../src/scss/_gridex.scss */
   .col-sm-pull-0 {
     right: auto;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-1 {
     right: 8.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-2 {
     right: 16.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-3 {
     right: 25%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-4 {
     right: 33.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-5 {
     right: 41.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-6 {
     right: 50%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-7 {
     right: 58.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-8 {
     right: 66.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-9 {
     right: 75%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-10 {
     right: 83.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-11 {
     right: 91.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-sm-pull-12 {
     right: 100%;
   }
 
-  /* line 59, ../../partials/_gridex.scss */
+  /* line 53, ../src/scss/_gridex.scss */
   .col-sm-push-0 {
     left: auto;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-1 {
     left: 8.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-2 {
     left: 16.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-3 {
     left: 25%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-4 {
     left: 33.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-5 {
     left: 41.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-6 {
     left: 50%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-7 {
     left: 58.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-8 {
     left: 66.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-9 {
     left: 75%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-10 {
     left: 83.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-11 {
     left: 91.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-sm-push-12 {
     left: 100%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-0 {
     margin-left: 0%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-1 {
     margin-left: 8.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-2 {
     margin-left: 16.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-3 {
     margin-left: 25%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-4 {
     margin-left: 33.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-5 {
     margin-left: 41.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-6 {
     margin-left: 50%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-7 {
     margin-left: 58.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-8 {
     margin-left: 66.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-9 {
     margin-left: 75%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-10 {
     margin-left: 83.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-11 {
     margin-left: 91.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-sm-offset-12 {
     margin-left: 100%;
   }
@@ -1056,8 +1074,8 @@
 /**
  * Medium grid
  */
-@media (min-width: 992px) {
-  /* line 33, ../../partials/_gridex.scss */
+@media (min-width: 970px) {
+  /* line 27, ../src/scss/_gridex.scss */
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     display: -webkit-box;
     display: -moz-box;
@@ -1073,7 +1091,7 @@
     flex: 0 0 auto;
   }
 
-  /* line 37, ../../partials/_gridex.scss */
+  /* line 31, ../src/scss/_gridex.scss */
   .col-md {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -1088,7 +1106,7 @@
     max-width: 100%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-1 {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
@@ -1098,7 +1116,7 @@
     max-width: 8.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-2 {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
@@ -1108,7 +1126,7 @@
     max-width: 16.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-3 {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
@@ -1118,7 +1136,7 @@
     max-width: 25%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-4 {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
@@ -1128,7 +1146,7 @@
     max-width: 33.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-5 {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
@@ -1138,7 +1156,7 @@
     max-width: 41.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-6 {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
@@ -1148,7 +1166,7 @@
     max-width: 50%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-7 {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
@@ -1158,7 +1176,7 @@
     max-width: 58.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-8 {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
@@ -1168,7 +1186,7 @@
     max-width: 66.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-9 {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
@@ -1178,7 +1196,7 @@
     max-width: 75%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-10 {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
@@ -1188,7 +1206,7 @@
     max-width: 83.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-11 {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
@@ -1198,7 +1216,7 @@
     max-width: 91.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-md-12 {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
@@ -1208,197 +1226,197 @@
     max-width: 100%;
   }
 
-  /* line 69, ../../partials/_gridex.scss */
+  /* line 63, ../src/scss/_gridex.scss */
   .col-md-pull-0 {
     right: auto;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-1 {
     right: 8.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-2 {
     right: 16.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-3 {
     right: 25%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-4 {
     right: 33.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-5 {
     right: 41.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-6 {
     right: 50%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-7 {
     right: 58.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-8 {
     right: 66.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-9 {
     right: 75%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-10 {
     right: 83.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-11 {
     right: 91.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-md-pull-12 {
     right: 100%;
   }
 
-  /* line 59, ../../partials/_gridex.scss */
+  /* line 53, ../src/scss/_gridex.scss */
   .col-md-push-0 {
     left: auto;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-1 {
     left: 8.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-2 {
     left: 16.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-3 {
     left: 25%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-4 {
     left: 33.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-5 {
     left: 41.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-6 {
     left: 50%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-7 {
     left: 58.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-8 {
     left: 66.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-9 {
     left: 75%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-10 {
     left: 83.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-11 {
     left: 91.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-md-push-12 {
     left: 100%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-0 {
     margin-left: 0%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-1 {
     margin-left: 8.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-2 {
     margin-left: 16.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-3 {
     margin-left: 25%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-4 {
     margin-left: 33.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-5 {
     margin-left: 41.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-6 {
     margin-left: 50%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-7 {
     margin-left: 58.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-8 {
     margin-left: 66.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-9 {
     margin-left: 75%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-10 {
     margin-left: 83.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-11 {
     margin-left: 91.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-md-offset-12 {
     margin-left: 100%;
   }
@@ -1406,8 +1424,8 @@
 /**
  * Large grid
  */
-@media (min-width: 1200px) {
-  /* line 33, ../../partials/_gridex.scss */
+@media (min-width: 1210px) {
+  /* line 27, ../src/scss/_gridex.scss */
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     display: -webkit-box;
     display: -moz-box;
@@ -1423,7 +1441,7 @@
     flex: 0 0 auto;
   }
 
-  /* line 37, ../../partials/_gridex.scss */
+  /* line 31, ../src/scss/_gridex.scss */
   .col-lg {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -1438,7 +1456,7 @@
     max-width: 100%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-1 {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
@@ -1448,7 +1466,7 @@
     max-width: 8.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-2 {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
@@ -1458,7 +1476,7 @@
     max-width: 16.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-3 {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
@@ -1468,7 +1486,7 @@
     max-width: 25%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-4 {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
@@ -1478,7 +1496,7 @@
     max-width: 33.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-5 {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
@@ -1488,7 +1506,7 @@
     max-width: 41.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-6 {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
@@ -1498,7 +1516,7 @@
     max-width: 50%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-7 {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
@@ -1508,7 +1526,7 @@
     max-width: 58.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-8 {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
@@ -1518,7 +1536,7 @@
     max-width: 66.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-9 {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
@@ -1528,7 +1546,7 @@
     max-width: 75%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-10 {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
@@ -1538,7 +1556,7 @@
     max-width: 83.33333%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-11 {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
@@ -1548,7 +1566,7 @@
     max-width: 91.66667%;
   }
 
-  /* line 47, ../../partials/_gridex.scss */
+  /* line 41, ../src/scss/_gridex.scss */
   .col-lg-12 {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
@@ -1558,198 +1576,222 @@
     max-width: 100%;
   }
 
-  /* line 69, ../../partials/_gridex.scss */
+  /* line 63, ../src/scss/_gridex.scss */
   .col-lg-pull-0 {
     right: auto;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-1 {
     right: 8.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-2 {
     right: 16.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-3 {
     right: 25%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-4 {
     right: 33.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-5 {
     right: 41.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-6 {
     right: 50%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-7 {
     right: 58.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-8 {
     right: 66.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-9 {
     right: 75%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-10 {
     right: 83.33333%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-11 {
     right: 91.66667%;
   }
 
-  /* line 64, ../../partials/_gridex.scss */
+  /* line 58, ../src/scss/_gridex.scss */
   .col-lg-pull-12 {
     right: 100%;
   }
 
-  /* line 59, ../../partials/_gridex.scss */
+  /* line 53, ../src/scss/_gridex.scss */
   .col-lg-push-0 {
     left: auto;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-1 {
     left: 8.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-2 {
     left: 16.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-3 {
     left: 25%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-4 {
     left: 33.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-5 {
     left: 41.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-6 {
     left: 50%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-7 {
     left: 58.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-8 {
     left: 66.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-9 {
     left: 75%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-10 {
     left: 83.33333%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-11 {
     left: 91.66667%;
   }
 
-  /* line 54, ../../partials/_gridex.scss */
+  /* line 48, ../src/scss/_gridex.scss */
   .col-lg-push-12 {
     left: 100%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-0 {
     margin-left: 0%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-1 {
     margin-left: 8.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-2 {
     margin-left: 16.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-3 {
     margin-left: 25%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-4 {
     margin-left: 33.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-5 {
     margin-left: 41.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-6 {
     margin-left: 50%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-7 {
     margin-left: 58.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-8 {
     margin-left: 66.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-9 {
     margin-left: 75%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-10 {
     margin-left: 83.33333%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-11 {
     margin-left: 91.66667%;
   }
 
-  /* line 74, ../../partials/_gridex.scss */
+  /* line 68, ../src/scss/_gridex.scss */
   .col-lg-offset-12 {
     margin-left: 100%;
   }
+}
+/* line 4, src/demo.scss */
+html, body, * {
+  box-sizing: border-box;
+}
+
+/* line 7, src/demo.scss */
+.mixology-row {
+  background-color: #eee;
+}
+
+/* line 10, src/demo.scss */
+.demo {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 18, src/demo.scss */
+.container {
+  max-width: 1040px;
+  margin: auto;
 }

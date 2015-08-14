@@ -1,0 +1,21 @@
+@import "../../mixology";
+
+// For Demo Only
+html, body, * {
+    box-sizing: border-box;
+}
+.mixology-row{
+    background-color: #eee;
+}
+.demo{
+    background-color:rgba(255,255,255,.5);
+    width: 100%;
+    text-align:center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.container{
+    max-width: 1040px;
+    margin: auto;
+}
